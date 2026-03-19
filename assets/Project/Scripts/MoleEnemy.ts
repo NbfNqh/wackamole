@@ -10,28 +10,33 @@ export class MoleEnemy extends Enemy
     @property(Sprite)
     shownSprite: Sprite;
 
-    private vulnerable : boolean;
-
     start() {
         this.setState(false);
     }
 
-    public toggleState(): void
+    protected Die(): void
     {
-        this.vulnerable = !this.vulnerable;
-        this.setState(this.vulnerable);
+        super.Die();
+        this.setState(false);
+    }
+
+    protected Revive(): void
+    {
+        super.Revive();
+        this.setState(true);
+    }
+
+    protected Damage(damage: number): void
+    {
+        super.Damage(damage);
+        // Play awesome visual effect I don't have time to make
     }
 
     public setState(vulnerable: boolean): void
     {
         this.hideSprite.enabled = !vulnerable;
         this.shownSprite.enabled = vulnerable;
-
-        this.vulnerable = vulnerable;
-    }
-
-    update(deltaTime: number) {
-        
     }
 }
-
+
+

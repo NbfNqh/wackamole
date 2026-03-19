@@ -13,7 +13,7 @@ export class StoreService extends Service
     {
         super();
         this.setup = setup;
-        ServiceLocator.onReady.push(this.startService);
+        ServiceLocator.onReady.push(() => this.startService());
     }
 
     public startService(): void

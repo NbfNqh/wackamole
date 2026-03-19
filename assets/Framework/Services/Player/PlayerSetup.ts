@@ -5,7 +5,7 @@ const { ccclass, property } = _decorator;
 export class PlayerSetup extends Component {
 
     @property
-    damage: number = 100;
+    public damage: number = 100;
 
 }
 
